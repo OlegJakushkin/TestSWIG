@@ -37,6 +37,7 @@ General Notes:
  - Minimize header file includes required for your API.
  - Templates require special treatment and are not there in generated wrappers code.
  - Create special target language helper objects that could help integration of your library into users codebase.
+ - Configure build order correctly
 
 SWIG .i notes:
 ----
