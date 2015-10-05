@@ -10,7 +10,7 @@
 
 namespace LibraryNamespace {
 
-class LibraryPINVOKE {
+class CSharpWrapperPINVOKE {
 
   protected class SWIGExceptionHelper {
 
@@ -33,8 +33,8 @@ class LibraryPINVOKE {
     static ExceptionArgumentDelegate argumentNullDelegate = new ExceptionArgumentDelegate(SetPendingArgumentNullException);
     static ExceptionArgumentDelegate argumentOutOfRangeDelegate = new ExceptionArgumentDelegate(SetPendingArgumentOutOfRangeException);
 
-    [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="SWIGRegisterExceptionCallbacks_Library")]
-    public static extern void SWIGRegisterExceptionCallbacks_Library(
+    [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="SWIGRegisterExceptionCallbacks_CSharpWrapper")]
+    public static extern void SWIGRegisterExceptionCallbacks_CSharpWrapper(
                                 ExceptionDelegate applicationDelegate,
                                 ExceptionDelegate arithmeticDelegate,
                                 ExceptionDelegate divideByZeroDelegate, 
@@ -47,8 +47,8 @@ class LibraryPINVOKE {
                                 ExceptionDelegate overflowDelegate, 
                                 ExceptionDelegate systemExceptionDelegate);
 
-    [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="SWIGRegisterExceptionArgumentCallbacks_Library")]
-    public static extern void SWIGRegisterExceptionCallbacksArgument_Library(
+    [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="SWIGRegisterExceptionArgumentCallbacks_CSharpWrapper")]
+    public static extern void SWIGRegisterExceptionCallbacksArgument_CSharpWrapper(
                                 ExceptionArgumentDelegate argumentDelegate,
                                 ExceptionArgumentDelegate argumentNullDelegate,
                                 ExceptionArgumentDelegate argumentOutOfRangeDelegate);
@@ -102,7 +102,7 @@ class LibraryPINVOKE {
     }
 
     static SWIGExceptionHelper() {
-      SWIGRegisterExceptionCallbacks_Library(
+      SWIGRegisterExceptionCallbacks_CSharpWrapper(
                                 applicationDelegate,
                                 arithmeticDelegate,
                                 divideByZeroDelegate,
@@ -115,7 +115,7 @@ class LibraryPINVOKE {
                                 overflowDelegate,
                                 systemDelegate);
 
-      SWIGRegisterExceptionCallbacksArgument_Library(
+      SWIGRegisterExceptionCallbacksArgument_CSharpWrapper(
                                 argumentDelegate,
                                 argumentNullDelegate,
                                 argumentOutOfRangeDelegate);
@@ -143,7 +143,7 @@ class LibraryPINVOKE {
       if (pendingException != null)
         throw new global::System.ApplicationException("FATAL: An earlier pending exception from unmanaged code was missed and thus not thrown (" + pendingException.ToString() + ")", e);
       pendingException = e;
-      lock(typeof(LibraryPINVOKE)) {
+      lock(typeof(CSharpWrapperPINVOKE)) {
         numExceptionsPending++;
       }
     }
@@ -154,7 +154,7 @@ class LibraryPINVOKE {
         if (pendingException != null) {
           e = pendingException;
           pendingException = null;
-          lock(typeof(LibraryPINVOKE)) {
+          lock(typeof(CSharpWrapperPINVOKE)) {
             numExceptionsPending--;
           }
         }
@@ -169,66 +169,57 @@ class LibraryPINVOKE {
     public delegate string SWIGStringDelegate(string message);
     static SWIGStringDelegate stringDelegate = new SWIGStringDelegate(CreateString);
 
-    [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="SWIGRegisterStringCallback_Library")]
-    public static extern void SWIGRegisterStringCallback_Library(SWIGStringDelegate stringDelegate);
+    [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="SWIGRegisterStringCallback_CSharpWrapper")]
+    public static extern void SWIGRegisterStringCallback_CSharpWrapper(SWIGStringDelegate stringDelegate);
 
     static string CreateString(string cString) {
       return cString;
     }
 
     static SWIGStringHelper() {
-      SWIGRegisterStringCallback_Library(stringDelegate);
+      SWIGRegisterStringCallback_CSharpWrapper(stringDelegate);
     }
   }
 
   static protected SWIGStringHelper swigStringHelper = new SWIGStringHelper();
 
 
-  static LibraryPINVOKE() {
+  static CSharpWrapperPINVOKE() {
   }
 
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_A_SetName")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_A_SetName")]
   public static extern void A_SetName(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_A_SetNameSwigExplicitA")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_A_SetNameSwigExplicitA")]
   public static extern void A_SetNameSwigExplicitA(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_A_SayHello")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_A_SayHello")]
   public static extern string A_SayHello(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_A_SayHelloSwigExplicitA")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_A_SayHelloSwigExplicitA")]
   public static extern string A_SayHelloSwigExplicitA(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_delete_A")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_delete_A")]
   public static extern void delete_A(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_new_A")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_new_A")]
   public static extern global::System.IntPtr new_A();
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_A_director_connect")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_A_director_connect")]
   public static extern void A_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, A.SwigDelegateA_0 delegate0, A.SwigDelegateA_1 delegate1);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_B_SetA")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_B_SetA")]
   public static extern void B_SetA(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_B_SetASwigExplicitB")]
-  public static extern void B_SetASwigExplicitB(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_B_CallA")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_B_CallA")]
   public static extern string B_CallA(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_B_CallASwigExplicitB")]
-  public static extern string B_CallASwigExplicitB(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_delete_B")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_delete_B")]
   public static extern void delete_B(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_new_B")]
+  [global::System.Runtime.InteropServices.DllImport("CSharpWrapper", EntryPoint="CSharp_new_B")]
   public static extern global::System.IntPtr new_B();
-
-  [global::System.Runtime.InteropServices.DllImport("Library", EntryPoint="CSharp_B_director_connect")]
-  public static extern void B_director_connect(global::System.Runtime.InteropServices.HandleRef jarg1, B.SwigDelegateB_0 delegate0, B.SwigDelegateB_1 delegate1);
 }
 
 }

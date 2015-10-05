@@ -53,7 +53,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
+    <Compile Include="Tests\BasicTests.cs" />
+    <Compile Include="Objects\CSharpA.cs" />
+    <Compile Include="Objects\CSharpAwithDestructor.cs" />
+    <Compile Include="Objects\CSharpB.cs" />
+    <Compile Include="Tests\MemoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +66,7 @@
       <Name>CSharpLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

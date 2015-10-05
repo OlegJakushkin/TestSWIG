@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLibrary", "CSharp\CSh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "CSharp\Tests\Tests.csproj", "{055F5A0C-9EE5-4952-A3D0-0F3D2845E55C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82F3357E-2DD2-4F1B-A460-3AE129000054} = {82F3357E-2DD2-4F1B-A460-3AE129000054}
+		{093D21DD-01DD-43BF-A0CA-A166A7597F12} = {093D21DD-01DD-43BF-A0CA-A166A7597F12}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

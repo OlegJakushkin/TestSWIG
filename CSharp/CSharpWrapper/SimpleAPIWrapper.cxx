@@ -238,7 +238,7 @@ static void SWIGUNUSED SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpExcepti
 #ifdef __cplusplus
 extern "C" 
 #endif
-SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionCallbacks_Library(
+SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionCallbacks_CSharpWrapper(
                                                 SWIG_CSharpExceptionCallback_t applicationCallback,
                                                 SWIG_CSharpExceptionCallback_t arithmeticCallback,
                                                 SWIG_CSharpExceptionCallback_t divideByZeroCallback, 
@@ -266,7 +266,7 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionCallbacks_Library(
 #ifdef __cplusplus
 extern "C" 
 #endif
-SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionArgumentCallbacks_Library(
+SWIGEXPORT void SWIGSTDCALL SWIGRegisterExceptionArgumentCallbacks_CSharpWrapper(
                                                 SWIG_CSharpExceptionArgumentCallback_t argumentCallback,
                                                 SWIG_CSharpExceptionArgumentCallback_t argumentNullCallback,
                                                 SWIG_CSharpExceptionArgumentCallback_t argumentOutOfRangeCallback) {
@@ -284,7 +284,7 @@ static SWIG_CSharpStringHelperCallback SWIG_csharp_string_callback = NULL;
 #ifdef __cplusplus
 extern "C" 
 #endif
-SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_Library(SWIG_CSharpStringHelperCallback callback) {
+SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_CSharpWrapper(SWIG_CSharpStringHelperCallback callback) {
   SWIG_csharp_string_callback = callback;
 }
 
@@ -355,10 +355,10 @@ namespace Swig {
 }
 
 
-	#include <SimplifiedAPI.h>
-
-
 #include <string>
+
+
+	#include <SimplifiedAPI.h>
 
 
 struct SWIG_null_deleter {
@@ -424,54 +424,6 @@ void SwigDirector_A::swig_connect_director(SWIG_Callback0_t callbackSetName, SWI
 void SwigDirector_A::swig_init_callbacks() {
   swig_callbackSetName = 0;
   swig_callbackSayHello = 0;
-}
-
-SwigDirector_B::SwigDirector_B() : B(), Swig::Director() {
-  swig_init_callbacks();
-}
-
-void SwigDirector_B::SetA(std::shared_ptr< A > p) {
-  void * jp  ;
-  
-  if (!swig_callbackSetA) {
-    B::SetA(p);
-    return;
-  } else {
-    jp = (void *)&p; 
-    swig_callbackSetA(jp);
-  }
-}
-
-std::string SwigDirector_B::CallA() {
-  std::string c_result ;
-  char * jresult = 0 ;
-  
-  if (!swig_callbackCallA) {
-    return B::CallA();
-  } else {
-    jresult = (char *) swig_callbackCallA();
-    if (!jresult) {
-      SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "null string", 0);
-      return c_result;
-    }
-    c_result.assign(jresult); 
-  }
-  return c_result;
-}
-
-SwigDirector_B::~SwigDirector_B() {
-  
-}
-
-
-void SwigDirector_B::swig_connect_director(SWIG_Callback0_t callbackSetA, SWIG_Callback1_t callbackCallA) {
-  swig_callbackSetA = callbackSetA;
-  swig_callbackCallA = callbackCallA;
-}
-
-void SwigDirector_B::swig_init_callbacks() {
-  swig_callbackSetA = 0;
-  swig_callbackCallA = 0;
 }
 
 
@@ -592,19 +544,6 @@ SWIGEXPORT void SWIGSTDCALL CSharp_B_SetA(void * jarg1, void * jarg2) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_B_SetASwigExplicitB(void * jarg1, void * jarg2) {
-  B *arg1 = (B *) 0 ;
-  std::shared_ptr< A > arg2 ;
-  std::shared_ptr< B > *smartarg1 = 0 ;
-  
-  
-  smartarg1 = (std::shared_ptr<  B > *)jarg1;
-  arg1 = (B *)(smartarg1 ? smartarg1->get() : 0); 
-  if (jarg2) arg2 = *(std::shared_ptr< A > *)jarg2; 
-  (arg1)->B::SetA(arg2);
-}
-
-
 SWIGEXPORT char * SWIGSTDCALL CSharp_B_CallA(void * jarg1) {
   char * jresult ;
   B *arg1 = (B *) 0 ;
@@ -615,21 +554,6 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_B_CallA(void * jarg1) {
   smartarg1 = (std::shared_ptr<  B > *)jarg1;
   arg1 = (B *)(smartarg1 ? smartarg1->get() : 0); 
   result = (arg1)->CallA();
-  jresult = SWIG_csharp_string_callback((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT char * SWIGSTDCALL CSharp_B_CallASwigExplicitB(void * jarg1) {
-  char * jresult ;
-  B *arg1 = (B *) 0 ;
-  std::shared_ptr< B > *smartarg1 = 0 ;
-  std::string result;
-  
-  
-  smartarg1 = (std::shared_ptr<  B > *)jarg1;
-  arg1 = (B *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->B::CallA();
   jresult = SWIG_csharp_string_callback((&result)->c_str()); 
   return jresult;
 }
@@ -650,22 +574,11 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_B() {
   void * jresult ;
   B *result = 0 ;
   
-  result = (B *)new SwigDirector_B();
+  result = (B *)new B();
   
   jresult = result ? new std::shared_ptr<  B >(result SWIG_NO_NULL_DELETER_1) : 0;
   
   return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_B_director_connect(void *objarg, SwigDirector_B::SWIG_Callback0_t callback0, SwigDirector_B::SWIG_Callback1_t callback1) {
-  std::shared_ptr< B > *obj = (std::shared_ptr< B > *)objarg;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_B *director = dynamic_cast<SwigDirector_B *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(callback0, callback1);
-  }
 }
 
 

@@ -32,7 +32,7 @@ public class A : global::System.IDisposable {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwnBase) {
           swigCMemOwnBase = false;
-          LibraryPINVOKE.delete_A(swigCPtr);
+          CSharpWrapperPINVOKE.delete_A(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -41,17 +41,17 @@ public class A : global::System.IDisposable {
   }
 
   public virtual void SetName(string n) {
-    if (SwigDerivedClassHasMethod("SetName", swigMethodTypes0)) LibraryPINVOKE.A_SetNameSwigExplicitA(swigCPtr, n); else LibraryPINVOKE.A_SetName(swigCPtr, n);
-    if (LibraryPINVOKE.SWIGPendingException.Pending) throw LibraryPINVOKE.SWIGPendingException.Retrieve();
+    if (SwigDerivedClassHasMethod("SetName", swigMethodTypes0)) CSharpWrapperPINVOKE.A_SetNameSwigExplicitA(swigCPtr, n); else CSharpWrapperPINVOKE.A_SetName(swigCPtr, n);
+    if (CSharpWrapperPINVOKE.SWIGPendingException.Pending) throw CSharpWrapperPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public virtual string SayHello() {
-    string ret = (SwigDerivedClassHasMethod("SayHello", swigMethodTypes1) ? LibraryPINVOKE.A_SayHelloSwigExplicitA(swigCPtr) : LibraryPINVOKE.A_SayHello(swigCPtr));
-    if (LibraryPINVOKE.SWIGPendingException.Pending) throw LibraryPINVOKE.SWIGPendingException.Retrieve();
+    string ret = (SwigDerivedClassHasMethod("SayHello", swigMethodTypes1) ? CSharpWrapperPINVOKE.A_SayHelloSwigExplicitA(swigCPtr) : CSharpWrapperPINVOKE.A_SayHello(swigCPtr));
+    if (CSharpWrapperPINVOKE.SWIGPendingException.Pending) throw CSharpWrapperPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public A() : this(LibraryPINVOKE.new_A(), true) {
+  public A() : this(CSharpWrapperPINVOKE.new_A(), true) {
     SwigDirectorConnect();
   }
 
@@ -60,7 +60,7 @@ public class A : global::System.IDisposable {
       swigDelegate0 = new SwigDelegateA_0(SwigDirectorSetName);
     if (SwigDerivedClassHasMethod("SayHello", swigMethodTypes1))
       swigDelegate1 = new SwigDelegateA_1(SwigDirectorSayHello);
-    LibraryPINVOKE.A_director_connect(swigCPtr, swigDelegate0, swigDelegate1);
+    CSharpWrapperPINVOKE.A_director_connect(swigCPtr, swigDelegate0, swigDelegate1);
   }
 
   private bool SwigDerivedClassHasMethod(string methodName, global::System.Type[] methodTypes) {

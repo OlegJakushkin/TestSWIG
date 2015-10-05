@@ -10,7 +10,7 @@
 
 namespace LibraryNamespace {
 
-public class Library {
+public class CSharpWrapper {
 }
 
 }

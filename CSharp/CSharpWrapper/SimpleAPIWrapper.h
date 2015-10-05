@@ -8,8 +8,8 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#ifndef SWIG_Library_WRAP_H_
-#define SWIG_Library_WRAP_H_
+#ifndef SWIG_CSharpWrapper_WRAP_H_
+#define SWIG_CSharpWrapper_WRAP_H_
 
 class SwigDirector_A : public A, public Swig::Director {
 
@@ -26,24 +26,6 @@ public:
 private:
     SWIG_Callback0_t swig_callbackSetName;
     SWIG_Callback1_t swig_callbackSayHello;
-    void swig_init_callbacks();
-};
-
-class SwigDirector_B : public B, public Swig::Director {
-
-public:
-    SwigDirector_B();
-    virtual void SetA(std::shared_ptr< A > p);
-    virtual std::string CallA();
-    virtual ~SwigDirector_B();
-
-    typedef void (SWIGSTDCALL* SWIG_Callback0_t)(void *);
-    typedef char * (SWIGSTDCALL* SWIG_Callback1_t)();
-    void swig_connect_director(SWIG_Callback0_t callbackSetA, SWIG_Callback1_t callbackCallA);
-
-private:
-    SWIG_Callback0_t swig_callbackSetA;
-    SWIG_Callback1_t swig_callbackCallA;
     void swig_init_callbacks();
 };
 

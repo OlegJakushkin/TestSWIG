@@ -41,8 +41,8 @@
   <ItemGroup>
     <Compile Include="A.cs" />
     <Compile Include="B.cs" />
-    <Compile Include="Library.cs" />
-    <Compile Include="LibraryPINVOKE.cs" />
+    <Compile Include="CSharpWrapper.cs" />
+    <Compile Include="CSharpWrapperPINVOKE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SWIGTYPE_p_std__shared_ptrT_A_t.cs" />
   </ItemGroup>

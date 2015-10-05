@@ -32,7 +32,7 @@ public class B : global::System.IDisposable {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwnBase) {
           swigCMemOwnBase = false;
-          LibraryPINVOKE.delete_B(swigCPtr);
+          CSharpWrapperPINVOKE.delete_B(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -41,50 +41,19 @@ public class B : global::System.IDisposable {
   }
 
   public virtual void SetA(A p) {
-    if (SwigDerivedClassHasMethod("SetA", swigMethodTypes0)) LibraryPINVOKE.B_SetASwigExplicitB(swigCPtr, A.getCPtr(p)); else LibraryPINVOKE.B_SetA(swigCPtr, A.getCPtr(p));
-    if (LibraryPINVOKE.SWIGPendingException.Pending) throw LibraryPINVOKE.SWIGPendingException.Retrieve();
+    CSharpWrapperPINVOKE.B_SetA(swigCPtr, A.getCPtr(p));
+    if (CSharpWrapperPINVOKE.SWIGPendingException.Pending) throw CSharpWrapperPINVOKE.SWIGPendingException.Retrieve();
   }
 
   public virtual string CallA() {
-    string ret = (SwigDerivedClassHasMethod("CallA", swigMethodTypes1) ? LibraryPINVOKE.B_CallASwigExplicitB(swigCPtr) : LibraryPINVOKE.B_CallA(swigCPtr));
-    if (LibraryPINVOKE.SWIGPendingException.Pending) throw LibraryPINVOKE.SWIGPendingException.Retrieve();
+    string ret = CSharpWrapperPINVOKE.B_CallA(swigCPtr);
+    if (CSharpWrapperPINVOKE.SWIGPendingException.Pending) throw CSharpWrapperPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public B() : this(LibraryPINVOKE.new_B(), true) {
-    SwigDirectorConnect();
+  public B() : this(CSharpWrapperPINVOKE.new_B(), true) {
   }
 
-  private void SwigDirectorConnect() {
-    if (SwigDerivedClassHasMethod("SetA", swigMethodTypes0))
-      swigDelegate0 = new SwigDelegateB_0(SwigDirectorSetA);
-    if (SwigDerivedClassHasMethod("CallA", swigMethodTypes1))
-      swigDelegate1 = new SwigDelegateB_1(SwigDirectorCallA);
-    LibraryPINVOKE.B_director_connect(swigCPtr, swigDelegate0, swigDelegate1);
-  }
-
-  private bool SwigDerivedClassHasMethod(string methodName, global::System.Type[] methodTypes) {
-    global::System.Reflection.MethodInfo methodInfo = this.GetType().GetMethod(methodName, global::System.Reflection.BindingFlags.Public | global::System.Reflection.BindingFlags.NonPublic | global::System.Reflection.BindingFlags.Instance, null, methodTypes, null);
-    bool hasDerivedMethod = methodInfo.DeclaringType.IsSubclassOf(typeof(B));
-    return hasDerivedMethod;
-  }
-
-  private void SwigDirectorSetA(global::System.IntPtr p) {
-    SetA(new A(p, false));
-  }
-
-  private string SwigDirectorCallA() {
-    return CallA();
-  }
-
-  public delegate void SwigDelegateB_0(global::System.IntPtr p);
-  public delegate string SwigDelegateB_1();
-
-  private SwigDelegateB_0 swigDelegate0;
-  private SwigDelegateB_1 swigDelegate1;
-
-  private static global::System.Type[] swigMethodTypes0 = new global::System.Type[] { typeof(A) };
-  private static global::System.Type[] swigMethodTypes1 = new global::System.Type[] {  };
 }
 
 }
