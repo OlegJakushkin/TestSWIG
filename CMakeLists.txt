@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 2.8.7)
 project(TestSWIG)
 
 #use -m64 for production release builds!
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11  -stdlib=libc++ -Wall -fPIC")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -m64  -std=c++14 -m64 -stdlib=libc++ -pedantic -mtune=native -g -Ofast -fPIC -fno-omit-frame-pointer")
-set(CMAKE_LINKER_FLAGS " -m64 -g -lc++abi -pthreads")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fPIC")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -m64  -std=c++14 -m64 -pedantic -mtune=native -g -Ofast -fPIC -fno-omit-frame-pointer")
+set(CMAKE_LINKER_FLAGS " -m64 -g -pthreads")
 ################################################
 #add sources to blobs
 file(GLOB CPP_LIBRARY_SOURCES
