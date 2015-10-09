@@ -33,6 +33,7 @@ script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
   - cmake -G "Unix Makefiles" ./
   - make -j2
+  - g++ --version
   - make install
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
