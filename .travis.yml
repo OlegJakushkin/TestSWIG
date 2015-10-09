@@ -15,10 +15,6 @@ addons:
     - cmake
     - time
     - swig
-    - clang-3.7
-    - g++-5
-    - gcc-5
-    - 
 install:
   - nuget restore TestSWIG.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
@@ -27,9 +23,8 @@ cache: apt
 
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
-  - export CXX=`which clang++-3.7` CC=`which clang-3.7`;
   - cmake -DCMAKE_BUILD_TYPE="Release" -G "Unix Makefiles" ./
-  - make -j2
+  - make -j1
   - ls ./Build/Release/
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj

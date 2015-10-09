@@ -29,6 +29,6 @@ std::string B::CallA() {
 }
 
 B::~B() {
-	auto s = p_ptr->SayHello();
+	std::string s = p_ptr->SayHello();
 	std::cout << "C++ Del B owner of " << s << std::endl;
 }
