@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8.7)
 project(TestSWIG)
 
 #use -m64 for production release builds!
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O1 -arch i386")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fPIC")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O1 -arch i386 -fPIC")
 set(CMAKE_LINKER_FLAGS "-pthreads")
 ################################################
 #add sources to blobs
