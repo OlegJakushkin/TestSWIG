@@ -1,9 +1,12 @@
 os:
   - linux
 
-language: csharp
 mono:
   - latest
+
+compiler: 
+  - gcc
+  - clang
 
 addons:
   apt:
@@ -14,12 +17,15 @@ addons:
     - cmake
     - time
     - swig
-    - gcc
-    - clang
+    - clang-3.7
+    - g++-5
+    - gcc-5
 
 cache: apt
     - 
 install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
+  - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
   - nuget restore TestSWIG.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 cache: ccache
@@ -27,7 +33,9 @@ cache: ccache
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
   - mkdir Cache 
-  - cmake --build ./Cache --target all -- -j 8
+  - cmake -G "Unix Makefiles" ./
+  - make -j2
+  - make install
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Build/Release/CSharpTests.dll
