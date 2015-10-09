@@ -1,11 +1,6 @@
 language: csharp
 mono:
   - latest
-  - 2.10.8
-
-compiler:
-  - clang
-  - gcc
 
 install:
   - swig
@@ -14,7 +9,7 @@ install:
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 
 script:
-  - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
+  - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir ./CSharp/CSharpLibrary/ -o ./CSharp/CSharpWrapper/SimpleAPIWrapper.cxx ./CSharp/SimplifiedAPI.i
   - cmake --build --target all -- -j 8
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
