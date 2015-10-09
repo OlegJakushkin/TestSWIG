@@ -5,10 +5,6 @@ mono:
 os:
   - linux
 
-compiler: 
-  - g++
-  - clang++
-
 addons:
   apt:
     sources:
@@ -31,13 +27,9 @@ cache: apt
 
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
-  - if [ "$CXX" = "g++" ]; then export CXX==`which g++-5` CC=`which gcc-5`; fi
-  - if [ "$CXX" = "clang++" ]; then export CXX=`which clang++-3.7` CC=`which clang-3.7`; fi
+  - export CXX=`which clang++-3.7` CC=`which clang-3.7`;
   - cmake -G "Unix Makefiles" ./
   - make -j2
-  - cat Makefile
-  - which g++-5
-  - g++-5 --version
   - make install
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
