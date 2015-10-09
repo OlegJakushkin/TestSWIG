@@ -3,7 +3,7 @@ project(TestSWIG)
 
 #use -m64 for production release builds!
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fPIC")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -std=c++11 -pedantic -fPIC")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -Ofast -std=c++14 -stdlib=libc++ -lc++abi -pthreads -pedantic -mtune=native -g -fPIC -fno-omit-frame-pointer")
 
 ################################################
 #add sources to blobs
