@@ -1,0 +1,38 @@
+language: csharp
+mono:
+  - latest
+  - 2.10.8
+
+compiler:
+  - clang
+  - gcc
+
+install:
+  - swig
+  - cmake
+  - nuget restore TestSWIG.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+
+script:
+  - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
+  - cmake --build --target all -- -j 8
+  - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
+  - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Build/Release/CSharpTests.dll
+
+os:
+  - linux
+
+sudo: false
+
+addons:
+  apt:
+    sources:
+    - deadsnakes
+    - ubuntu-toolchain-r-test
+    packages:
+    - cmake
+    - time
+    - swig
+    - gcc
+    - clang

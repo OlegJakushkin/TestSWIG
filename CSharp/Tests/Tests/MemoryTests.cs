@@ -1,9 +1,8 @@
 using System;
-using System.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tests {
-    [TestClass]
+    [TestFixture]
     public class MemoryTests {
         private void ClearGC() {
             GC.Collect();
@@ -15,7 +14,7 @@ namespace Tests {
             GC.Collect();
         }
 
-        [TestMethod]
+        [Test]
         public void TestWithUsing() {
             using ( var a = new CSharpAwithDestructor() ) {
             using ( var b = new CSharpB() ) {
@@ -46,7 +45,7 @@ namespace Tests {
             Assert.AreEqual( "C++ Call A:C# Hell!", b.CallA() ); // How to keep shared_ptr passed object as long as C++ needs it?
         }
 
-        [TestMethod]
+        [Test]
         public void TestWithNew() {
             TestScope();
             ClearGC();

@@ -1,5 +1,9 @@
 # TestSWIG
 SWIG + CSharp samples
+
+[![Build Status](https://travis-ci.org/OlegJakushkin/TestSWIG.svg)](https://travis-ci.org/OlegJakushkin/TestSWIG)
+
+
 Structure:
 ----
 	CPP	-> Main library
@@ -53,3 +57,13 @@ C++ Notes:
  - Write Interfaces as pure virtual classes
  - Use single inheritance trees
  - Wrap all non **std** library objects needed externally
+
+Travis CI Notes:
+----
+ - Build Order:
+	- Compile Library (C++)
+	- Call SWIG (run on .i file)
+	- Compile Wrapper Library (C++)
+	- Compile Wrapper Library (C#),
+	- Compile tests
+ - Install mixed enviroment C++ + target language

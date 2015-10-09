@@ -1,10 +1,10 @@
 ﻿using LibraryNamespace;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tests {
-    [TestClass]
+    [TestFixture]
     public class BasicTests {
-        [TestMethod]
+        [Test]
         public void TestInheritedFunctionCallFromCpp() {
             var a = new CSharpA();
             var b = new CSharpB();
@@ -14,7 +14,7 @@ namespace Tests {
             Assert.AreEqual(  "C++ Call A:C# Hell!", b.CallA() );
         }
 
-        [TestMethod]
+        [Test]
         public void TestCppLibraryObjectB() {
             var a = new A();
             var b = new B();
@@ -23,7 +23,7 @@ namespace Tests {
             Assert.AreEqual( "C++ Call A:C++ bob", b.CallA() );
         }
 
-        [TestMethod]
+        [Test]
         public void TestCppLibraryObjectA() {
             var a = new A();
             a.SetName( "bob" );
