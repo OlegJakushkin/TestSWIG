@@ -1,8 +1,9 @@
-os:
-  - linux
-
+language: csharp
 mono:
   - latest
+
+os:
+  - linux
 
 compiler: 
   - gcc
@@ -32,7 +33,6 @@ cache: ccache
 
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
-  - mkdir Cache 
   - cmake -G "Unix Makefiles" ./
   - make -j2
   - make install
