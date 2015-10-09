@@ -13,6 +13,7 @@ addons:
   apt:
     sources:
     - deadsnakes
+    - llvm-toolchain-precise-3.7
     - ubuntu-toolchain-r-test
     packages:
     - cmake
