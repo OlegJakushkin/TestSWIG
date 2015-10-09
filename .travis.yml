@@ -31,7 +31,9 @@ script:
   - cmake -G "Unix Makefiles" ./
   - make -j2
   - make install
+  - ls ./Build/
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
+  - ls ./Build/
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Build/Release/CSharpTests.dll
 

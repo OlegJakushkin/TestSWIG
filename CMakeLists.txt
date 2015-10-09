@@ -45,6 +45,3 @@ add_library(Library STATIC ${CPP_LIBRARY_SOURCE_FILES})
 add_library(CSharpWrapper SHARED ${CSHARP_WRAPPER_SOURCE_FILES})
 #add dependencies (what depends on what)
 target_link_libraries(CSharpWrapper Library)
-
-#remove "lib" prefix
-set_target_properties(CSharpWrapper PROPERTIES PREFIX "")
