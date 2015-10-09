@@ -18,15 +18,10 @@ addons:
     - cmake
     - time
     - swig
-    - clang-3.7
-    - g++-5
-    - gcc-5
 
 cache: apt
     - 
 install:
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
-  - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
   - nuget restore TestSWIG.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 cache: ccache
