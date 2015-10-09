@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8.7)
 project(TestSWIG)
 
 #use -m64 for production release builds!
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O3 -std=c++11 -pedantic -mtune=native -flto")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fPIC")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O3 -std=c++11 -pedantic -mtune=native -flto -fPIC")
 
 ################################################
 #add sources to blobs
