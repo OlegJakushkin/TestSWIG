@@ -28,8 +28,9 @@ cache: apt
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
   - export CXX=`which clang++-3.7` CC=`which clang-3.7`;
-  - cmake -G "Unix Makefiles" ./
+  - cmake -DCMAKE_BUILD_TYPE="Release" -G "Unix Makefiles" ./
   - make -j2
+  - make release -j2
   - make install
   - ls ./Build/
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
