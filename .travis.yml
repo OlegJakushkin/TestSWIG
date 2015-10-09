@@ -1,22 +1,10 @@
-language: csharp
-mono:
-  - latest
-
-install:
-  - nuget restore TestSWIG.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-
-script:
-  - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
-  - cmake --build ./ --target all -- -j 8
-  - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
-  - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Build/Release/CSharpTests.dll
-
+sudo: false
 os:
   - linux
 
-sudo: false
+language: csharp
+mono:
+  - latest
 
 addons:
   apt:
@@ -29,3 +17,19 @@ addons:
     - swig
     - gcc
     - clang
+
+cache: apt
+    - 
+install:
+  - nuget restore TestSWIG.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+cache: ccache
+
+script:
+  - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
+  - mkdir Cache 
+  - cmake --build ./Cache --target all -- -j 8
+  - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
+  - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Build/Release/CSharpTests.dll
+
