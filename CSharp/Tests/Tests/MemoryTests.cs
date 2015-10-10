@@ -9,7 +9,7 @@ namespace Tests {
             GC.Collect( GC.MaxGeneration );
             GC.WaitForPendingFinalizers();
             GC.Collect();
-#if __MonoCS__
+#if !__MonoCS__
             GC.WaitForFullGCApproach();
             GC.WaitForFullGCComplete();
 #endif

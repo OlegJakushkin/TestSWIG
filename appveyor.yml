@@ -29,8 +29,8 @@ build:
     project: TestSWIG.sln
 
 after_build:
-    - DIR .\Build\
-    - DIR .\Build\Release\
+    - DIR Build\
+    - DIR Build\Release\
 
 test_script:
-    - nunit-console .\Build\Release\CSharpTests.dll
+    - nunit-console Build\Release\CSharpTests.dll
