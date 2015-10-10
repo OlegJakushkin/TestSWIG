@@ -30,7 +30,8 @@ build:
 
 after_build:
     - ls C:\projects\testswig\
-    - ls C:\projects\testswig\Build
+    - ls C:\projects\testswig\packages
+    - ls C:\projects\testswig\packages\build
 
 test_script:
     - nunit-console Build\Release\CSharpTests.dll
