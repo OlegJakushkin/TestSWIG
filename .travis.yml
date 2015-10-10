@@ -1,7 +1,3 @@
-language: csharp
-mono:
-  - 4.0.4
-
 os:
   - linux
 
@@ -24,8 +20,6 @@ addons:
 install:
   - nuget restore TestSWIG.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-
-cache: apt
 
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
