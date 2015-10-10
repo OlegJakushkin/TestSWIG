@@ -32,4 +32,4 @@ after_build:
     - ls C:\projects\testswig\build
 
 test_script:
-    - nunit-console Build\Release\CSharpTests.dll
+    - nunit-console C:\projects\testswig\build\Release\CSharpTests.dll
