@@ -7,7 +7,7 @@ environment:
     - VSVER: Visual Studio 14 2015 Win64
 
 platform:
-  - x64
+  - x86
 
 configuration:
   - Release
