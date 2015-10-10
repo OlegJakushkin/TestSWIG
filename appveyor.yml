@@ -1,0 +1,32 @@
+version: 2.0.{build}
+
+environment:
+  matrix:
+    - VSVER: Visual Studio 11 2012 Win64
+    - VSVER: Visual Studio 12 2013 Win64
+    - VSVER: Visual Studio 14 2015 Win64
+
+platform:
+  - x64
+
+configuration:
+  - Release
+
+install:
+    - choco install cmake
+    - choco upgrade cmake
+    - choco install nunit
+    - choco upgrade nunit
+    - choco install swig
+    - choco upgrade swig
+    - git submodule -q update --init
+
+before_build:
+    - nuget restore TestSWIG.sln
+    - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
+
+build:
+    project: TestSWIG.sln
+
+test_script:
+    - nunit-console .\Build\Release\CSharpTests.dll

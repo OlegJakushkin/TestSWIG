@@ -1,8 +1,8 @@
 # TestSWIG
 SWIG + CSharp samples
 
-[![Build Status](https://travis-ci.org/OlegJakushkin/TestSWIG.svg)](https://travis-ci.org/OlegJakushkin/TestSWIG)
-
+[![Build Status Linux](https://travis-ci.org/OlegJakushkin/TestSWIG.svg)](https://travis-ci.org/OlegJakushkin/TestSWIG)
+[![Build status Windows ](https://ci.appveyor.com/api/projects/status/uhf5rnnrc8fbf36v?svg=true)](https://ci.appveyor.com/project/OlegJakushkin/testswig)
 
 Structure:
 ----

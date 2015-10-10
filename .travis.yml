@@ -15,6 +15,12 @@ addons:
     - cmake
     - time
     - swig
+    - mono-complete
+    - nuget
+    - nunit-console
+    - gcc-4.8
+    - g++-4.8
+
 install:
   - nuget restore TestSWIG.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
@@ -23,6 +29,8 @@ cache: apt
 
 script:
   - swig -c++ -csharp -namespace LibraryNamespace -I./CPP/Library/ -outdir CSharp/CSharpLibrary/ -o CSharp/CSharpWrapper/SimpleAPIWrapper.cxx CSharp/SimplifiedAPI.i
+  - export CC=/usr/bin/gcc-4.8
+  - export CXX=/usr/bin/g++-4.8
   - cmake -DCMAKE_BUILD_TYPE="Release" -G "Unix Makefiles" ./
   - make -j1
   - ls ./Build/Release/
