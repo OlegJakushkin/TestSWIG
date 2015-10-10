@@ -1,6 +1,6 @@
 language: csharp
 mono:
-  - latest
+  - 4.0.4.1
 
 os:
   - linux
