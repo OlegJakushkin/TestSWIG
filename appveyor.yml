@@ -42,4 +42,4 @@ after_build:
 
 
 test_script:
-    - nunit-console C:\projects\testswig\CSharp\Tests\Tests.csproj
+    - nunit-console C:\projects\testswig\CSharp\Tests\Tests.csproj /config:Release
