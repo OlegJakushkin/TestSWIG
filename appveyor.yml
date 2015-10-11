@@ -29,7 +29,7 @@ build:
     project: TestSWIG.sln
 
 after_build:
-    - ls C:\projects\testswig\build
+    - ls C:\projects\testswig\build\release\
 
 test_script:
     - nunit-console C:\projects\testswig\build\Release\CSharpTests.dll
