@@ -2,12 +2,12 @@ version: 2.0.{build}
 
 environment:
   matrix:
-#    - VSVER: Visual Studio 11 2012 Win64
-#    - VSVER: Visual Studio 12 2013 Win64
+    - VSVER: Visual Studio 11 2012 Win64
+    - VSVER: Visual Studio 12 2013 Win64
     - VSVER: Visual Studio 14 2015 Win64
 
 platform:
-#  - x86
+  - x86
   - x64
 
 configuration:
@@ -25,7 +25,6 @@ install:
 cache: 
   - C:\ProgramData\chocolatey\bin -> appveyor.yml 
   - C:\ProgramData\chocolatey\lib -> appveyor.yml
-  - C:\Users\appveyor\AppData\Local\Temp\chocolatey
 
 before_build:
     - nuget restore TestSWIG.sln
@@ -35,7 +34,7 @@ build:
     project: TestSWIG.sln
 
 after_build: 
-    - ls C:\projects\testswig\build\
+    - ls C:\projects\testswig\build\release\
     - msbuild C:\projects\testswig\CSharp\CSharpLibrary\CSharpLibrary.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - msbuild C:\projects\testswig\CSharp\Tests\Tests.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - ls C:\projects\testswig\build\release\
@@ -44,3 +43,8 @@ after_build:
 test_script:
  - ps: if($env:PLATFORM -eq "x86") { nunit-console-x86 /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj }
  - ps: if( $env:PLATFORM -eq "x64" ) { nunit-console /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj }
+
+artifacts:
+  - path: Build\Release
+    name: release
+    type: zip
