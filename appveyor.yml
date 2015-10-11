@@ -43,4 +43,9 @@ after_build:
 
 
 test_script:
-    - nunit-console-$(platform) /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
+ - ps: |
+	if($env:PLATFORM -eq "x86") {
+		nunit-console-$(platform) /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
+	} else if( $env:PLATFORM -eq "x64" ) {
+		nunit-console-64 /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
+	}
