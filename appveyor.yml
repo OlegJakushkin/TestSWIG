@@ -27,6 +27,10 @@ before_build:
 
 build:
     project: TestSWIG.sln
+    project: CPP\Library\Library.vcxproj
+    project: CSharp\CSharpWrapper\CSharpWrapper.vcxproj
+    project: CSharp\CSharpWrapper\CSharpLibrary.csproj
+    project: CSharp\CSharpWrapper\Tests.csproj
 
 after_build:
     - ls C:\projects\testswig\build\release\

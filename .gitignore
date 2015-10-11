@@ -244,5 +244,6 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+*Thumbs.db
 CMake*
 !CMakeLists*
