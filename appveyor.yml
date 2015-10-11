@@ -8,6 +8,7 @@ environment:
 
 platform:
   - x86
+  - x64
 
 configuration:
   - Release
@@ -42,4 +43,4 @@ after_build:
 
 
 test_script:
-    - nunit-console-x86 /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
+    - nunit-console-$(platform) /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
