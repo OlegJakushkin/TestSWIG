@@ -34,5 +34,5 @@ script:
   - xbuild /p:Configuration=Release ./CSharp/CSharpLibrary/CSharpLibrary.csproj
   - xbuild /p:Configuration=Release ./CSharp/Tests/Tests.csproj
   - ls ./Build/Release/
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console-x64.exe ./Build/Release/CSharpTests.dll
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe /config:Release ./CSharp/Tests/Tests.csproj
 
