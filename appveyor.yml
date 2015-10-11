@@ -27,13 +27,15 @@ before_build:
 
 build:
     project: TestSWIG.sln
-    project: CPP\Library\Library.vcxproj
-    project: CSharp\CSharpWrapper\CSharpWrapper.vcxproj
-    project: CSharp\CSharpWrapper\CSharpLibrary.csproj
-    project: CSharp\CSharpWrapper\Tests.csproj
 
-after_build:
+after_build: 
     - ls C:\projects\testswig\build\release\
+    - msbuild CPP\Library\Library.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - msbuild CSharp\CSharpWrapper\CSharpWrapper.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - msbuild CSharp\CSharpWrapper\CSharpLibrary.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - msbuild CSharp\CSharpWrapper\Tests.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - ls C:\projects\testswig\build\release\
+
 
 test_script:
     - nunit-console C:\projects\testswig\build\Release\CSharpTests.dll
