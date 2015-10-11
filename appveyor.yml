@@ -7,8 +7,7 @@ environment:
     - VSVER: Visual Studio 14 2015 Win64
 
 platform:
-  - x86
-  - x64
+  - Any CPU
 
 configuration:
   - Release
@@ -36,11 +35,11 @@ build:
 
 after_build: 
     - ls C:\projects\testswig\build\release\
+    - ls C:\projects\testswig\build\release\
     - msbuild C:\projects\testswig\CSharp\CSharpLibrary\CSharpLibrary.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - msbuild C:\projects\testswig\CSharp\Tests\Tests.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - ls C:\projects\testswig\build\release\
 
 
 test_script:
-    - nunit-console /help
     - nunit-console /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
