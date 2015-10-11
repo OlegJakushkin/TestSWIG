@@ -30,8 +30,6 @@ build:
 
 after_build: 
     - ls C:\projects\testswig\build\release\
-    - msbuild CPP\Library\Library.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-    - msbuild CSharp\CSharpWrapper\CSharpWrapper.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - msbuild CSharp\CSharpWrapper\CSharpLibrary.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - msbuild CSharp\CSharpWrapper\Tests.csproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     - ls C:\projects\testswig\build\release\
