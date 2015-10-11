@@ -7,7 +7,7 @@ environment:
     - VSVER: Visual Studio 14 2015 Win64
 
 platform:
-  - Any CPU
+  - x86
 
 configuration:
   - Release
@@ -42,4 +42,4 @@ after_build:
 
 
 test_script:
-    - nunit-console /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
+    - nunit-console-x86 /config:Release C:\projects\testswig\CSharp\Tests\Tests.csproj 
